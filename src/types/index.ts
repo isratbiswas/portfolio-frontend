@@ -8,10 +8,16 @@ export interface IBlog {
 }
 
 export interface IProject {
-  _id: string;
+  _id?: string;
   title: string;
-  content: string;
   thumbnail: string;
-  createdAt: Date;
-  updatedAt: Date;
+  repoLink?: string;
+  liveLink?: string;
+  description: string;
+  features: string[];
+  techStack?: string[];
+  tags?: string[];
+  isFeatured?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
 }
