@@ -117,7 +117,7 @@ export default function About() {
           I’m open to collaborations, internships, and new opportunities.
         </p>
         <a
-          href="mailto:isratjahan@gmail.com"
+          href="mailto:isratbiswas28@gmail.com"
           className="inline-block bg-green-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-green-700 transition-all"
         >
           Contact Me
