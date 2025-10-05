@@ -21,16 +21,19 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-6">
+        <nav className="hidden md:flex gap-6 ">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors mt-2"
             >
               {link.label}
             </Link>
           ))}
+          <Link href="/login">
+            <Button>Login</Button>
+          </Link>
         </nav>
 
         {/* Mobile Nav */}

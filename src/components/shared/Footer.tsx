@@ -12,7 +12,7 @@ export default function Footer() {
           </Link>
 
           {/* Center - Navigation Links */}
-          <nav className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+          <nav className="flex flex-wrap justify-center gap-4 text-base text-muted-foreground">
             <Link href="/about" className="hover:text-foreground">
               About
             </Link>
