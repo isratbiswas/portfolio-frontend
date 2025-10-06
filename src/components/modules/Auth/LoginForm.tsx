@@ -1,0 +1,129 @@
+"use client";
+
+import React from "react";
+import { FieldValues, useForm } from "react-hook-form";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import Link from "next/link";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import Image from "next/image";
+import { signIn } from "next-auth/react";
+import { login } from "@/actions/auth";
+import toast from "react-hot-toast";
+
+export default function LoginForm() {
+  const form = useForm<FieldValues>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+
+  const onSubmit = async (values: FieldValues) => {
+    console.log(values, "submitted");
+    try {
+      const res = await login(values);
+      console.log(res, "viru");
+      if (res.success) {
+        toast.success("User Logged in Successfully");
+      } else {
+        toast.error("User Login Failed");
+      }
+      // signIn("credentials", {
+      //   ...values,
+      //   callbackUrl: "/dashboard",
+      // });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleSocialLogin = (provider: "google" | "github") => {
+    console.log(`Login with ${provider}`);
+    console.log("login in");
+  };
+
+  return (
+    <div className="flex justify-center items-center min-h-screen ">
+      <div className="space-y-6 w-full max-w-md bg-white p-8 rounded-lg shadow-md">
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="space-y-6 w-full max-w-md"
+          >
+            <h2 className="text-3xl font-bold text-center">Login</h2>
+
+            {/* Email */}
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="email"
+                      placeholder="Enter your email"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* Password */}
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Password</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="password"
+                      placeholder="Enter your password"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <Button type="submit" className="w-full mt-2">
+              Login
+            </Button>
+
+            <div className="flex items-center justify-center space-x-2">
+              <div className="h-px w-16 bg-gray-300" />
+              <span className="text-sm text-gray-500">or continue with</span>
+              <div className="h-px w-16 bg-gray-300" />
+            </div>
+          </form>
+        </Form>
+        {/* Social Login Buttons */}
+        <div className="flex flex-col gap-3 mt-4">
+          <Button
+            variant="outline"
+            className="flex items-center justify-center gap-2"
+            onClick={() =>
+              signIn("google", {
+                callbackUrl: "/dashboard",
+              })
+            }
+          >
+            Login with Google
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -35,7 +35,7 @@ export default function Sidebar() {
           <Button
             variant="destructive"
             className="w-full justify-start gap-2 cursor-pointer"
-            onClick={() => signOut()}
+            onClick={() => signOut({ callbackUrl: "/" })}
           >
             <LogOut className="h-4 w-4" />
             Logout
