@@ -15,6 +15,11 @@ const BlogDetailsCard = ({ blog }: { blog: IBlog }) => {
       <div className="py-20 text-center text-gray-500">Blog not found.</div>
     );
   }
+  const formData = {
+    title: blog.title,
+    content: blog.content,
+    thumbnail: blog.thumbnail,
+  };
   return (
     <main className="max-w-4xl mx-auto py-10 px-4">
       <h1 className="text-4xl font-semibold mb-7">{blog?.title}</h1>
@@ -34,7 +39,8 @@ const BlogDetailsCard = ({ blog }: { blog: IBlog }) => {
       </article>
       {session.status === "authenticated" && (
         <div className="flex gap-3 mt-6">
-          <EditModal /> {/* Pass blogId if needed */}
+          <EditModal data={formData} blogId={blog._id} />
+
           <DeleteModal blogId={blog._id} />
         </div>
       )}
