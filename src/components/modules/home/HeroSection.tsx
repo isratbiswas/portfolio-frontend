@@ -19,7 +19,7 @@ const HeroSection = () => {
           View My Work
         </Link>
         <Link
-          href="/contact"
+          href="#"
           className="border border-green-600 text-green-600 px-6 py-3 rounded-lg hover:bg-green-50 transition"
         >
           Contact Me

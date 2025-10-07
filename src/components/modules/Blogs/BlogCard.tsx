@@ -9,7 +9,7 @@ const BlogCard = ({ blog }: { blog: IBlog }) => {
       href={`/blogs/${blog._id}`}
       className="block group transform hover:-translate-y-1 transition-transform duration-300"
     >
-      <div className="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+      <div className="bg-white dark:bg-gray-900 h-96 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
         {blog?.thumbnail ? (
           <div className="relative h-56 w-full overflow-hidden">
             <Image

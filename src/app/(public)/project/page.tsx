@@ -1,16 +1,21 @@
 import ProjectCard from "@/components/modules/Project/ProjectCard";
 import { IProject } from "@/types";
+import { Metadata } from "next";
 import React from "react";
-
+export const metadata: Metadata = {
+  title: "All Project",
+  description:
+    "Browse all projects posts on web development, Next.js, React, and more. Stay updated with the latest tutorials and articles.",
+};
 const ProjectPage = async () => {
   const res = await fetch(
     "https://portfolio-backend-navy-eight.vercel.app/api/v1/project/all-project",
     {
-      cache: "no-store",
+      next: { tags: ["PROJECT"] },
     }
   );
   const { data: projects } = await res.json();
-  console.log(projects, "llllll");
+
   return (
     <div className="py-10 px-4 max-w-7xl mx-auto">
       <h2 className="text-center text-4xl">All Projects</h2>

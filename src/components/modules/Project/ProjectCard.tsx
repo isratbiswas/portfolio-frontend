@@ -27,11 +27,17 @@ const ProjectCard = ({ project }: { project: IProject }) => {
 
         <div className="p-6">
           <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
-            {project?.title}
+            Title: {project?.title}
+          </h3>
+          <h3 className="text-base  mb-2  transition-colors">
+            Repo Link: {project?.repoLink}
+          </h3>
+          <h3 className="text-base  mb-2  transition-colors">
+            Live Link: {project?.liveLink}
           </h3>
 
           <p className="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">
-            {project?.description.slice(0, 50)}.....
+            Content: {project?.description.slice(0, 50)}.....
           </p>
 
           <div className="text-right">

@@ -1,8 +1,14 @@
+"use client";
+import { Button } from "@/components/ui/button";
+import DeleteModal from "@/components/ui/DeleteModal";
+import EditModal from "@/components/ui/EditModal";
 import { IBlog } from "@/types";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import React from "react";
 
 const BlogDetailsCard = ({ blog }: { blog: IBlog }) => {
+  const session = useSession();
   console.log(blog, blog?.title, "miru-bd");
   if (!blog) {
     return (
@@ -26,6 +32,12 @@ const BlogDetailsCard = ({ blog }: { blog: IBlog }) => {
       <article className="prose prose-lg max-w-none">
         <p>{blog.content}</p>
       </article>
+      {session.status === "authenticated" && (
+        <div className="flex gap-3 mt-6">
+          <EditModal /> {/* Pass blogId if needed */}
+          <DeleteModal blogId={blog._id} />
+        </div>
+      )}
     </main>
   );
 };

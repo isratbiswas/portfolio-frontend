@@ -7,7 +7,7 @@ export default function ContactCTA() {
         together!
       </p>
       <a
-        href="mailto:isratjahan@email.com"
+        href="mailto:isratbiswas28@gmail.com"
         className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition"
       >
         Contact Me
