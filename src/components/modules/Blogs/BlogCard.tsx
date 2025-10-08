@@ -9,7 +9,7 @@ const BlogCard = ({ blog }: { blog: IBlog }) => {
       href={`/blogs/${blog._id}`}
       className="block group transform hover:-translate-y-1 transition-transform duration-300"
     >
-      <div className="bg-white dark:bg-gray-900 h-96 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+      <div className="bg-white dark:bg-gray-900  rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
         {blog?.thumbnail ? (
           <div className="relative h-56 w-full overflow-hidden">
             <Image
@@ -26,11 +26,11 @@ const BlogCard = ({ blog }: { blog: IBlog }) => {
         )}
 
         <div className="p-6">
-          <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
+          <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-600 transition-colors">
             {blog?.title}
           </h3>
 
-          <p className="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">
+          <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
             {blog?.content.slice(0, 50)}.....
           </p>
 

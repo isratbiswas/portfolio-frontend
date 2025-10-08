@@ -32,11 +32,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AuthProvider>
-          <Navbar />
+          <div className="sticky top-0 z-50 ">
+            <Navbar />
+          </div>
           <Toaster position="top-center" />
           <div className="min-h-dvh">{children}</div>
+          <Footer />
         </AuthProvider>
-        <Footer />
       </body>
     </html>
   );

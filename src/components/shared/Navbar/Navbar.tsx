@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 const links = [
   { label: "Home", href: "/" },
@@ -74,14 +74,17 @@ export default function Navbar() {
                   </Link>
                 ))}
                 {session.status === "authenticated" ? (
-                  <div className="">
+                  <div className="flex-col">
                     <Link
                       href="/dashboard"
                       className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors mr-4 "
                     >
                       Dashboard
                     </Link>
-                    <button className="px-6 py-2 bg-green-500 hover:bg-green-600 rounded-md text-1xl text-white font-semibold mt-1">
+                    <button
+                      onClick={() => signOut({ callbackUrl: "/" })}
+                      className="px-6 py-2 bg-green-500 hover:bg-green-600 rounded-md text-1xl text-white font-semibold mt-1"
+                    >
                       Logout
                     </button>
                   </div>

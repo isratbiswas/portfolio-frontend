@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="w-full border-t bg-background">
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <Link href="/" className="text-lg font-semibold">
+          <Link href="/" className="text-lg font-semibold text-green-600">
             ISRAT JAHAN
           </Link>
 
@@ -16,12 +16,10 @@ export default function Footer() {
             <Link href="/about" className="hover:text-foreground">
               About
             </Link>
-            <Link href="/blog" className="hover:text-foreground">
+            <Link href="/blogs" className="hover:text-foreground">
               Blog
             </Link>
-            <Link href="/contact" className="hover:text-foreground">
-              Contact
-            </Link>
+
             <Link href="/project" className="hover:text-foreground">
               Project
             </Link>
