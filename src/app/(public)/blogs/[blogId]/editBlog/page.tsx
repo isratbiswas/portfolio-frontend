@@ -1,14 +1,16 @@
 import { updateBlog } from "@/actions/create";
-import { IBlog } from "@/types";
 import Form from "next/form";
-import { useRouter } from "next/router";
-import React from "react";
 import toast from "react-hot-toast";
 
-const EditBlog = async ({ params }: any) => {
+interface EditBlogProps {
+  params: {
+    id: string;
+  };
+}
+const EditBlog = async ({ params }: EditBlogProps) => {
   const { id } = params;
-  const router = useRouter();
-  const handleSubmit = async ({ formData }: any) => {
+
+  const handleSubmit = async (formData: FormData) => {
     await updateBlog(formData, id);
     toast.success("Blog successfully updated");
   };

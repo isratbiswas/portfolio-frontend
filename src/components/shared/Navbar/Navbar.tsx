@@ -41,7 +41,10 @@ export default function Navbar() {
               >
                 Dashboard
               </Link>
-              <button className="px-6 py-2 bg-green-500 hover:bg-green-600 rounded-md text-1xl text-white font-semibold mt-1">
+              <button
+                onClick={() => signOut()}
+                className="px-6 py-2 bg-green-500 hover:bg-green-600 rounded-md text-1xl text-white font-semibold mt-1"
+              >
                 Logout
               </button>
             </div>
@@ -82,7 +85,7 @@ export default function Navbar() {
                       Dashboard
                     </Link>
                     <button
-                      onClick={() => signOut({ callbackUrl: "/" })}
+                      onClick={() => signOut()}
                       className="px-6 py-2 bg-green-500 hover:bg-green-600 rounded-md text-1xl text-white font-semibold mt-1"
                     >
                       Logout

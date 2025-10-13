@@ -1,11 +1,10 @@
 "use client";
-import { Button } from "@/components/ui/button";
+
 import DeleteModal from "@/components/ui/DeleteModal";
 import EditModal from "@/components/ui/EditModal";
 import { IBlog } from "@/types";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import React from "react";
 
 const BlogDetailsCard = ({ blog }: { blog: IBlog }) => {
   const session = useSession();

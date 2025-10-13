@@ -1,7 +1,6 @@
 "use client";
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
@@ -14,8 +13,8 @@ import { deleteBlog } from "@/actions/create";
 import { Button } from "@/components/ui/button";
 import toast from "react-hot-toast";
 
-interface DeleteModalProps {
-  blogId: string;
+interface Error {
+  error: string;
 }
 export default function DeleteModal({ blogId }: { blogId: string }) {
   const handleDelete = async () => {
@@ -26,8 +25,12 @@ export default function DeleteModal({ blogId }: { blogId: string }) {
       } else {
         toast.error("Failed to delete blog!");
       }
-    } catch (error: any) {
-      alert(error.message);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error(error.message);
+      } else {
+        console.error("Unknown error:", error);
+      }
     }
   };
   return (

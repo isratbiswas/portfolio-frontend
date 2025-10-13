@@ -1,10 +1,10 @@
 "use server";
 import { revalidatePath, revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
-import { features } from "process";
 export const createProject = async (data: FormData) => {
-  // console.log(data, "cp-4");
+  console.log(data, "cp-4");
   const projectInfo = Object.fromEntries(data.entries());
+  console.log(projectInfo, "cp-6");
   const modifiedData = {
     ...projectInfo,
     tags: projectInfo.tags
@@ -16,11 +16,10 @@ export const createProject = async (data: FormData) => {
       .split(",")
       .map((feature) => feature.trim()),
   };
-
   console.log(modifiedData, "mira");
 
   const res = await fetch(
-    "http://localhost:5000/api/v1/project/create-project",
+    "https://portfolio-backend-navy-eight.vercel.app/api/v1/project/create-project",
 
     {
       method: "POST",

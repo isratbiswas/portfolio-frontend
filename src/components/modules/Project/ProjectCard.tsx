@@ -1,9 +1,7 @@
 import { IProject } from "@/types";
 import Image from "next/image";
-import Link from "next/link";
 
 const ProjectCard = ({ project }: { project: IProject }) => {
-  console.log(project);
   return (
     <div className="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
       {project?.thumbnail ? (
@@ -40,7 +38,7 @@ const ProjectCard = ({ project }: { project: IProject }) => {
         </h3>
 
         <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
-          <span className="text-md font-semibold">Content : </span>
+          <span className="text-md font-semibold">Description : </span>
           {project?.description}
         </p>
       </div>

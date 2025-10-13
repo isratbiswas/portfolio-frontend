@@ -2,7 +2,6 @@
 
 import { createProject } from "@/actions/createProject";
 import Form from "next/form";
-import { useState } from "react";
 
 const CreateProjectForm = () => {
   return (
@@ -73,12 +72,15 @@ const CreateProjectForm = () => {
       </div>
       {/* Content */}
       <div>
-        <label className="block text-sm font-medium mb-1" htmlFor="content">
-          Content
+        <label
+          className="block text-sm font-medium mb-1"
+          htmlFor="descripttion"
+        >
+          Description
         </label>
         <textarea
-          id="content"
-          name="content"
+          id="description"
+          name="description"
           rows={4}
           className="w-full rounded-md border px-3 py-2 focus:ring focus:ring-blue-200"
         />

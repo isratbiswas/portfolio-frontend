@@ -5,7 +5,6 @@ import Form from "next/form";
 import { useState } from "react";
 
 const CreateBlogForm = () => {
-  const [isFeatured, setIsFeatured] = useState("false");
   return (
     <Form
       action={create}
