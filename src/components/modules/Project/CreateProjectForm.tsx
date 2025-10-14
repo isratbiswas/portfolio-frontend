@@ -72,11 +72,8 @@ const CreateProjectForm = () => {
       </div>
       {/* Content */}
       <div>
-        <label
-          className="block text-sm font-medium mb-1"
-          htmlFor="descripttion"
-        >
-          Description
+        <label className="block text-sm font-medium mb-1" htmlFor="content">
+          Content
         </label>
         <textarea
           id="description"
