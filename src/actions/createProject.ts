@@ -104,15 +104,16 @@ import { redirect } from "next/navigation";
 export const createProject = async (data: FormData) => {
   const file = (data.get("file") as File) || null;
   const projectInfo = Object.fromEntries(data.entries());
+
   const modifiedData = {
     ...projectInfo,
     tags: projectInfo.tags
       ?.toString()
-      ?.split(",")
+      ?.split(/[\s,]+/)
       ?.map((t) => t.trim()),
     features: projectInfo.features
       ?.toString()
-      ?.split(",")
+      ?.split(/[\s,]+/)
       ?.map((f) => f.trim()),
   };
 

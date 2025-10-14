@@ -1,6 +1,7 @@
 import { IProject } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
+import { features } from "process";
 
 const ProjectCard = ({ project }: { project: IProject }) => {
   return (
@@ -24,11 +25,12 @@ const ProjectCard = ({ project }: { project: IProject }) => {
         <h3 className="text-md font-semibold mb-2 group-hover:text-blue-600 transition-colors">
           Title: {project?.title}
         </h3>
-
         <p className="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3">
           <span className="text-md font-semibold">Description : </span>
           {project?.description}
         </p>
+        <p>Tags: {project.tags?.join(" , ")}</p>
+        <p>Features: {project.features?.join(" , ")}</p>
         <div className="flex justify-between">
           <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 ">
             <a
